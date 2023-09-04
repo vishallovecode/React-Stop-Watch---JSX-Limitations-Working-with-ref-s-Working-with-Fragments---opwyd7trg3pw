@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function Home() {
   const startTime = useRef(0);
@@ -48,14 +48,16 @@ function Home() {
           </button>
         </section>
       </section>
-      <section className="lap-section">
-        <h2>Laps</h2>
-        <section className="laps">
-          {laps?.map((value) => {
-            return <p>{value}</p>;
-          })}
+      {laps.length >= 1 && (
+        <section className="lap-section">
+          <h2>Laps</h2>
+          <section className="laps">
+            {laps?.map((value) => {
+              return <p>{value}</p>;
+            })}
+          </section>
         </section>
-      </section>
+      )}
     </div>
   );
 }
